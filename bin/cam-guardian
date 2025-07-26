@@ -1,0 +1,4 @@
+#!/bin/bash
+# Script principal para arrancar Security Cam Guardian
+
+python3 ../src/camera_monitor.py
