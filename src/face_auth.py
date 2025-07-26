@@ -37,17 +37,18 @@ class FaceAuth:
                     print(f"Advertencia: No se pudo procesar {filename}: {str(e)}")
 
     def verify_face(self, frame, debug=False):
-        """Verifica rostros con preprocesamiento"""
         if not self.known_encodings:
             raise ValueError("No hay rostros conocidos cargados")
         processed = self.preprocess_image(frame)
         rgb_frame = cv2.cvtColor(processed, cv2.COLOR_BGR2RGB)
         face_locations = face_recognition.face_locations(rgb_frame)
+        if len(face_locations) == 0:  # No hay rostros detectados
+            return True  # Evita que se marque como intruso
         face_encodings = face_recognition.face_encodings(rgb_frame, face_locations)
         if debug:
             print(f"Rostros detectados en frame: {len(face_encodings)}")
         for encoding in face_encodings:
-            matches = face_recognition.compare_faces(self.known_encodings, encoding, tolerance=0.55)  # Más permisivo
+            matches = face_recognition.compare_faces(self.known_encodings, encoding, tolerance=0.55)
             if debug:
                 print(f"Coincidencias: {matches}")
             if any(matches):
