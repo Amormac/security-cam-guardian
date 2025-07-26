@@ -1,11 +1,11 @@
 [Unit]
 Description=Security Cam Guardian Service
-After=network.target
+Before=display-manager.service
 
 [Service]
-Type=simple
-ExecStart=/home/ariel/Documentos/ARIEL/INTERACCIÓN HUMANO COMPUTADOR/security-cam-guardian/bin/cam-guardian
-Restart=on-failure
+ExecStart=/ruta/al/proyecto/bin/cam-guardian
+Restart=always
+User=root
 
 [Install]
 WantedBy=multi-user.target

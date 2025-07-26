@@ -1,13 +1,11 @@
 # Security Cam Guardian
 
-Sistema de monitoreo de cámara con autenticación facial y notificaciones por Telegram.
-
-## Estructura
-- **bin/**: Scripts ejecutables
-- **config/**: Configuraciones y datos de usuario
-- **src/**: Código fuente principal
-- **var/log/**: Logs del sistema
-- **systemd/**: Configuración del servicio
+Sistema de vigilancia con reconocimiento facial y alertas por Telegram.
 
 ## Instalación
-Ver `install.sh` para instalación automática.
+1. Ejecutar `./install.sh`
+2. Configurar `config/config.yaml` con tu token de Telegram y chat ID.
+
+## Uso
+- Servicio: `sudo systemctl start security-cam-guardian`
+- Logs: `tail -f /var/log/security-cam-guardian.log`

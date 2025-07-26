@@ -1,3 +1,12 @@
-# Parámetros del sistema
-# token: "<TELEGRAM_BOT_TOKEN>"
-# chat_id: "<TELEGRAM_CHAT_ID>"
+telegram:
+  token: "8171158554:AAGHVHpg7oGpSMD_RV5ifmwyPUDUZ8aM6oQ"       # Obtener de @BotFather
+  chat_id: "5860450176"       # Obtener de @userinfobot
+
+camera:
+  check_interval: 1            # Segundos entre verificaciones de cámara
+  darkness_threshold: 10       # Umbral para considerar cámara tapada (0-255)
+  recognition_brightness_threshold: 30  # Umbral de brillo para reconocimiento facial
+security:
+  allowed_users:               # Nombres de usuarios autorizados
+    - "ariel"
+  log_path: "/home/ariel/security-cam-guardian.log"
