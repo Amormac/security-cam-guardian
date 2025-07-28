@@ -77,27 +77,4 @@ class FaceAuth:
         rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         encodings = face_recognition.face_encodings(rgb_frame)
         if encodings:
-            self.known_encodings.append(encodings[0])
-            return True
-        return False
-
-# Utilidad para evitar ejecución infinita en pruebas
-if __name__ == "__main__":
-    import time
-    fa = FaceAuth("../config/known_faces")
-    cap = cv2.VideoCapture(0)
-    print("Presiona 'q' para salir.")
-    count = 0
-    while count < 100:  # Limita a 100 iteraciones
-        ret, frame = cap.read()
-        if not ret:
-            print("No se pudo capturar frame")
-            break
-        result = fa.verify_face(frame, debug=True)
-        print(f"¿Autorizado?: {result}")
-        count += 1
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
-        time.sleep(0.1)
-    cap.release()
-    print("Fin de prueba.")
+            self.known_encodings.append(encodings[0]) 
